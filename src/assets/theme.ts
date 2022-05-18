@@ -1,7 +1,9 @@
 const defaultTheme = {
   fonts: {
     light: 'Quicksand-Light',
+    regular: 'Quicksand-Regular',
     medium: 'Quicksand-Medium',
+    semiBold: 'Quicksand-SemiBold',
     bold: 'Quicksand-Bold',
   },
   colors: {
@@ -13,6 +15,7 @@ const defaultTheme = {
     text: '#373737',
     text_white: '#FAFAFA',
     background: '#FFFFFF',
+    error: '#E05F36',
   },
 };
 
