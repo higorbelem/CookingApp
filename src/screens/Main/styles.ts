@@ -25,6 +25,7 @@ export const Scroll = styled.ScrollView.attrs({
 
 export const SearchInput = styled.TextInput`
   width: 90%;
+  height: 50px;
   align-self: center;
   background-color: ${({theme}) => theme.colors.background};
   padding-horizontal: 20px;

@@ -55,41 +55,45 @@ const AddRecipe: FC<Props> = ({navigation}) => {
           text: 'Câmera',
           isPrimary: true,
           onPress: () =>
-            launchCamera(
-              {
-                mediaType: 'photo',
-                quality: 0.5,
-                includeBase64: true,
-              },
-              response => {
-                if (response.assets?.length && response.assets[0].base64) {
-                  setImage({
-                    error: false,
-                    value: response.assets[0].base64,
-                  });
-                }
-              },
-            ),
+            setTimeout(() => {
+              launchCamera(
+                {
+                  mediaType: 'photo',
+                  quality: 0.5,
+                  includeBase64: true,
+                },
+                response => {
+                  if (response.assets?.length && response.assets[0].base64) {
+                    setImage({
+                      error: false,
+                      value: response.assets[0].base64,
+                    });
+                  }
+                },
+              );
+            }, 500),
         },
         {
           text: 'Galeria',
           isPrimary: true,
           onPress: () =>
-            launchImageLibrary(
-              {
-                mediaType: 'photo',
-                quality: 0.5,
-                includeBase64: true,
-              },
-              (response: any) => {
-                if (response.assets?.length && response.assets[0].base64) {
-                  setImage({
-                    error: false,
-                    value: response.assets[0].base64,
-                  });
-                }
-              },
-            ),
+            setTimeout(() => {
+              launchImageLibrary(
+                {
+                  mediaType: 'photo',
+                  quality: 0.5,
+                  includeBase64: true,
+                },
+                (response: any) => {
+                  if (response.assets?.length && response.assets[0].base64) {
+                    setImage({
+                      error: false,
+                      value: response.assets[0].base64,
+                    });
+                  }
+                },
+              );
+            }, 500),
         },
       ],
     });
