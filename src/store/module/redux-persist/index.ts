@@ -4,10 +4,9 @@ import {persistReducer} from 'redux-persist';
 export default (reducers: any) => {
   const persistedReducers = persistReducer(
     {
-      key: 'CookingApp',
+      key: '@com.cookingapp',
       storage: AsyncStorage,
-      whitelist: ['app', 'ingredient', 'recipe', 'history'],
-      timeout: undefined,
+      blacklist: [],
     },
     reducers,
   );

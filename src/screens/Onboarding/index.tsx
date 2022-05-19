@@ -3,7 +3,7 @@ import {CommonActions} from '@react-navigation/native';
 import {MotiView, useAnimationState} from 'moti';
 import React, {FC, useEffect} from 'react';
 import {Dimensions} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 
 import types from '../../store/module/types';
 import * as S from './styles';
@@ -16,8 +16,6 @@ type Props = {
 
 const Onboarding: FC<Props> = ({navigation}) => {
   const dispatch = useDispatch();
-
-  const onboardingDone = useSelector((state: any) => state.app.onboardingDone);
 
   const animationState = useAnimationState({
     from: {
@@ -35,17 +33,7 @@ const Onboarding: FC<Props> = ({navigation}) => {
       animationState.transitionTo('to');
     }, 500);
   }, []);
-
-  useEffect(() => {
-    if (onboardingDone) {
-      navigation.dispatch(
-        CommonActions.reset({
-          index: 0,
-          routes: [{name: 'Main'}],
-        }),
-      );
-    }
-  }, [onboardingDone]);
+  // }, [onboardingDone]);
 
   const onPress = () => {
     dispatch({

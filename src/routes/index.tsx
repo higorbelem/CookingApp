@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Main from '../screens/Main';
@@ -13,8 +14,10 @@ import defaultTheme from '../assets/theme';
 const Stack = createNativeStackNavigator();
 
 const Route = () => {
+  const onboardingDone = useSelector((state: any) => state.app.onboardingDone);
   return (
     <Stack.Navigator
+      initialRouteName={onboardingDone ? 'Main' : 'Onboarding'}
       screenOptions={{
         headerShown: false,
         contentStyle: {

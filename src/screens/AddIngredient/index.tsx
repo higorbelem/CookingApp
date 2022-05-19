@@ -39,10 +39,10 @@ const AddIngredient: FC<Props> = ({navigation}) => {
 
   const onImagePressed = () => {
     Alert.show({
-      text: 'Onde você quer pegar a foto?',
+      text: 'Where do you want to get the image?',
       buttons: [
         {
-          text: 'Câmera',
+          text: 'Camera',
           isPrimary: true,
           onPress: () =>
             setTimeout(() => {
@@ -64,7 +64,7 @@ const AddIngredient: FC<Props> = ({navigation}) => {
             }, 500),
         },
         {
-          text: 'Galeria',
+          text: 'Gallery',
           isPrimary: true,
           onPress: () =>
             setTimeout(() => {

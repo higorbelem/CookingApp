@@ -26,6 +26,15 @@ const Recipe: FC<Props> = ({navigation, route}) => {
   const ingredients = useSelector((state: any) => state.ingredient.ingredients);
 
   const onCook = () => {
+    dispatch({
+      type: types.ingredient.COOK,
+      payload: recipe,
+    });
+
+    navigation.goBack();
+  };
+
+  const onCookPressed = () => {
     const unavailableIngredients: IIngredient[] = ingredients.filter(
       (ingredient: IIngredient) =>
         recipe.ingredients.some(
@@ -42,19 +51,7 @@ const Recipe: FC<Props> = ({navigation, route}) => {
           {
             text: 'Yes',
             isPrimary: true,
-            onPress: () => {
-              dispatch({
-                type: types.ingredient.COOK,
-                payload: recipe,
-              });
-
-              dispatch({
-                type: types.history.ADD_TO_HISTORY,
-                payload: recipe,
-              });
-
-              navigation.goBack();
-            },
+            onPress: onCook,
           },
           {
             text: 'No',
@@ -119,7 +116,7 @@ const Recipe: FC<Props> = ({navigation, route}) => {
         <S.Title>Method</S.Title>
         <S.MethodText>{recipe.method}</S.MethodText>
 
-        <Button text="Cook" onPress={onCook} />
+        <Button text="Cook" onPress={onCookPressed} />
       </S.Scroll>
     </S.Safe>
   );

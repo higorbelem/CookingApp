@@ -14,7 +14,7 @@ type Props = {
 
 const History: FC<Props> = ({navigation}) => {
   const history: IHistory[] = useSelector(
-    (state: any) => state.history.history,
+    (state: any) => state.ingredient.history,
   );
 
   const getDateFormated = (date: moment.Moment) => {

@@ -1,11 +1,17 @@
+import moment from 'moment';
+import uuid from 'react-native-uuid';
+
+import {IHistory} from '../../../../@types/history';
 import {IIngredient} from '../../../../@types/ingredient';
 import {IRecipe} from '../../../../@types/recipe';
 import * as Types from '../../types';
 
 const INITIAL_STATE: {
   ingredients: IIngredient[];
+  history: IHistory[];
 } = {
   ingredients: [],
+  history: [],
 };
 
 export default function (state = INITIAL_STATE, action: any) {
@@ -54,6 +60,15 @@ export default function (state = INITIAL_STATE, action: any) {
         });
         return aux;
       });
+
+      newState.history = [
+        ...newState.history,
+        {
+          id: uuid.v4() as string,
+          recipe,
+          date: moment(),
+        },
+      ];
 
       return newState;
     }

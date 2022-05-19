@@ -13,13 +13,8 @@ export const app = {
   DONE_ONBOARDING: '@DONE_ONBOARDING',
 };
 
-export const history = {
-  ADD_TO_HISTORY: '@ADD_TO_HISTORY',
-};
-
 export default {
   ingredient,
   recipe,
   app,
-  history,
 };

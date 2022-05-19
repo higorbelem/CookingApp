@@ -4,6 +4,7 @@ import {getBottomSpace} from 'react-native-iphone-x-helper';
 
 import Text from '../../components/Text';
 import TrayArrow from '../../assets/svgs/tray_arrow.svg';
+import defaultTheme from '../../assets/theme';
 
 const {width} = Dimensions.get('window');
 
@@ -23,7 +24,9 @@ export const Scroll = styled.ScrollView.attrs({
   flex: 1;
 `;
 
-export const SearchInput = styled.TextInput`
+export const SearchInput = styled.TextInput.attrs(() => ({
+  placeholderTextColor: defaultTheme.colors.dark_gray,
+}))`
   width: 90%;
   height: 50px;
   align-self: center;
@@ -31,6 +34,7 @@ export const SearchInput = styled.TextInput`
   padding-horizontal: 20px;
   border-radius: 5px;
   margin-bottom: 20px;
+  color: ${({theme}) => theme.colors.text};
 
   shadow-color: ${Platform.OS === 'ios' ? '#00000022' : '#00000066'};
   shadow-offset: 2px 2px;

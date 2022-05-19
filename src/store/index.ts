@@ -1,10 +1,20 @@
 import {persistStore} from 'redux-persist';
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 
 import PersistReducer from './module/redux-persist/index';
 import rootReducer from './module/reducer';
 
-const store = createStore(PersistReducer(rootReducer));
+const middlewares = [];
+
+if (__DEV__) {
+  const createDebugger = require('redux-flipper').default;
+  middlewares.push(createDebugger());
+}
+
+const store = createStore(
+  PersistReducer(rootReducer),
+  applyMiddleware(...middlewares),
+);
 
 export const persistor = persistStore(store);
 

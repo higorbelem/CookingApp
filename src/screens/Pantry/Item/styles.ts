@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import Plus from '../../../assets/svgs/plus.svg';
 import Minus from '../../../assets/svgs/minus.svg';
 import Text from '../../../components/Text';
+import defaultTheme from '../../../assets/theme';
 
 export const Container = styled.TouchableOpacity`
   width: 50%;
@@ -56,11 +57,14 @@ export const QuantInputContainer = styled.TouchableOpacity`
   flex: 1;
 `;
 
-export const QuantInput = styled.TextInput`
+export const QuantInput = styled.TextInput.attrs(() => ({
+  placeholderTextColor: defaultTheme.colors.dark_gray,
+}))`
   flex: 1;
   text-align: right;
   font-size: 16px;
   font-family: ${({theme}) => theme.fonts.medium};
+  color: ${({theme}) => theme.colors.text};
 `;
 
 export const MetricText = styled(Text)`

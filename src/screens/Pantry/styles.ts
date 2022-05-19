@@ -1,6 +1,7 @@
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 
+import defaultTheme from '../../assets/theme';
 import Text from '../../components/Text';
 
 export const Safe = styled.SafeAreaView`
@@ -16,7 +17,9 @@ export const Scroll = styled.ScrollView.attrs({
   flex: 1;
 `;
 
-export const SearchInput = styled.TextInput`
+export const SearchInput = styled.TextInput.attrs(() => ({
+  placeholderTextColor: defaultTheme.colors.dark_gray,
+}))`
   width: 95%;
   height: 50px;
   align-self: center;
@@ -24,6 +27,7 @@ export const SearchInput = styled.TextInput`
   padding-horizontal: 20px;
   border-radius: 5px;
   margin-bottom: 20px;
+  color: ${({theme}) => theme.colors.text};
 
   shadow-color: ${Platform.OS === 'ios' ? '#00000055' : '#000000AA'};
   shadow-offset: 2px 2px;
