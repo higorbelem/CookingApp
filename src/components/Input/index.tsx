@@ -43,7 +43,6 @@ const Input = ({
 }: Props) => {
   const [validationMessage, setValidationMessage] = useState('');
   const [state, setState] = useState<number>(1);
-  const [usedValue, setUsedValue] = useState(false);
   const [text, setText] = useState<{value: string; error: boolean}>({
     value: '',
     error: false,
@@ -60,8 +59,7 @@ const Input = ({
   }, [text]);
 
   useEffect(() => {
-    if (value && value !== text.value && !usedValue) {
-      setUsedValue(true);
+    if (value && value !== text.value) {
       setText(st => ({
         ...st,
         value,
@@ -92,7 +90,7 @@ const Input = ({
       transform: [{scale: 1}],
     },
     end: {
-      translateY: -22,
+      translateY: -24,
       translateX: -15,
       transform: [{scale: 0.85}],
     },
@@ -184,7 +182,7 @@ const Input = ({
               duration: 200,
             }}
             pointerEvents="none">
-            <S.Placeholder>{placeholder}</S.Placeholder>
+            <S.Placeholder state={state}>{placeholder}</S.Placeholder>
           </S.PlaceholderMoti>
         )}
       </S.Container>

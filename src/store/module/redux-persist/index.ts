@@ -6,7 +6,7 @@ export default (reducers: any) => {
     {
       key: 'CookingApp',
       storage: AsyncStorage,
-      whitelist: ['ingredients'],
+      whitelist: ['app', 'ingredient', 'recipe', 'history'],
       timeout: undefined,
     },
     reducers,

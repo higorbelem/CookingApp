@@ -16,7 +16,7 @@ const OthersList: FC<Props> = ({data, onPress, onAddRecipePress}) => {
     <S.Container>
       <S.Title>Others</S.Title>
       {data?.length ? (
-        <S.Scroll showsHorizontalScrollIndicator={false}>
+        <S.Content>
           {data.map((item: IRecipe, index) => (
             <Item
               key={item.id}
@@ -32,7 +32,7 @@ const OthersList: FC<Props> = ({data, onPress, onAddRecipePress}) => {
               onPress={() => onPress(item)}
             />
           ))}
-        </S.Scroll>
+        </S.Content>
       ) : (
         <S.EmptyContainer>
           <S.EmptyText>No recipes added</S.EmptyText>

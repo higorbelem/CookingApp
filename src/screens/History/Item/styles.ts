@@ -1,9 +1,9 @@
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 
-import Text from '../../../../components/Text';
+import Text from '../../../components/Text';
 
-export const Container = styled.TouchableOpacity<{
+export const Container = styled.View<{
   first: boolean;
 }>`
   flex-direction: row;
@@ -28,22 +28,31 @@ export const Image = styled.Image`
   border-top-left-radius: 10px;
 `;
 
-export const TitleContainer = styled.View`
+export const Content = styled.View`
   flex: 1;
   padding: 10px;
 `;
 
+export const TitleContainer = styled.View`
+  flex-direction: row;
+`;
+
 export const Title = styled(Text)`
+  flex: 1;
   height: 30px;
-  text-align: center;
+  text-align: left;
   font-size: 17px;
   font-family: ${({theme}) => theme.fonts.semiBold};
 `;
 
+export const Date = styled(Text)`
+  height: 30px;
+  font-size: 14px;
+`;
+
 export const Subtitle = styled(Text)`
   flex: 1;
-  text-align: center;
-  font-size: 14px;
+  text-align: left;
+  font-size: 13px;
   line-height: 15px;
-  font-family: ${({theme}) => theme.fonts.regular};
 `;

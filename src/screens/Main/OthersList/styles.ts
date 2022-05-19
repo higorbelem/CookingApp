@@ -16,12 +16,9 @@ export const Title = styled(Text)`
   margin-bottom: 10px;
 `;
 
-export const Scroll = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    paddingHorizontal: 20,
-  },
-})`
+export const Content = styled.View`
   width: 100%;
+  padding-horizontal: 20px;
 `;
 
 export const EmptyContainer = styled.View`

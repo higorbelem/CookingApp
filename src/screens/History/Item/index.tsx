@@ -6,19 +6,22 @@ type Props = {
   image: string;
   title: string;
   description: string;
+  date: string;
   first: boolean;
-  onPress: () => void;
 };
 
-const Item: FC<Props> = ({image, title, description, first, onPress}) => {
+const Item: FC<Props> = ({image, title, description, date, first}) => {
   return (
-    <S.Container first={first} activeOpacity={0.9} onPress={onPress}>
+    <S.Container first={first}>
       <S.Image source={{uri: `data:image/png;base64,${image}`}} />
 
-      <S.TitleContainer>
-        <S.Title numberOfLines={2}>{title}</S.Title>
+      <S.Content>
+        <S.TitleContainer>
+          <S.Title numberOfLines={1}>{title}</S.Title>
+          <S.Date>{date}</S.Date>
+        </S.TitleContainer>
         <S.Subtitle numberOfLines={3}>{description}</S.Subtitle>
-      </S.TitleContainer>
+      </S.Content>
     </S.Container>
   );
 };

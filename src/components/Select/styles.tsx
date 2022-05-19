@@ -15,24 +15,24 @@ interface SProps {
   paddingLeft?: number;
   halfSize?: boolean;
   error?: any;
+  selectionMade?: boolean;
 }
 
 export const Container = styled.View<SProps>`
   width: ${({halfSize}) => (halfSize ? 50 : 100)}%;
-  height: auto;
   z-index: ${({enabledList}) => (enabledList ? 9999 : 3)};
   padding-left: ${({paddingLeft}) => (paddingLeft ? paddingLeft : 0)}px;
-  margin: 4px 0 4px 0;
 `;
 
 export const InputContainer = styled.TouchableOpacity<SProps>`
   margin-top: 1px;
-  height: 49px;
+  height: 50px;
   padding-left: 12px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-color: ${({theme}) => theme.colors.gray};
+  border-color: ${({theme, selectionMade}) =>
+    selectionMade ? theme.colors.secondary : theme.colors.gray};
   border-width: 1.5px;
   border-bottom-width: ${({enabledList}) => (enabledList ? 0.5 : 1)}px;
   border-bottom-left-radius: ${({enabledList}) => (enabledList ? 0 : 10)}px;

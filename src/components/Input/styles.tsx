@@ -9,12 +9,13 @@ export const Wrapper = styled.View`
 `;
 
 export const Container = styled(Animated.View)<{multiline?: boolean}>`
-  height: ${({multiline}) => (multiline ? 90 : 45)}px;
+  height: ${({multiline}) => (multiline ? 90 : 50)}px;
   width: 100%;
   flex-direction: row;
   border-radius: 7px;
   border-width: 1.5px;
   border-color: ${({theme}) => theme.colors.gray};
+  background-color: ${({theme}) => theme.colors.background};
   z-index: 2;
 `;
 
@@ -30,11 +31,17 @@ export const PlaceholderMoti = styled(MotiView)`
   padding-horizontal: 5px;
   position: absolute;
   left: 15px;
-  top: 9px;
+  top: 13px;
 `;
 
-export const Placeholder = styled(Text)`
-  color: ${({theme}) => theme.colors.dark_gray};
+export const Placeholder = styled(Text)<{state: number}>`
+  color: ${({theme, state}) =>
+    state === 0
+      ? theme.colors.error
+      : state === 1
+      ? theme.colors.gray
+      : theme.colors.secondary};
+  font-family: ${({theme}) => theme.fonts.semiBold};
   font-size: 16px;
 `;
 
@@ -42,4 +49,7 @@ export const InfoButton = styled.TouchableOpacity`
   margin-right: 10px;
 `;
 
-export const Error = styled(Text)``;
+export const Error = styled(Text)`
+  text-align: left;
+  color: ${({theme}) => theme.colors.error};
+`;

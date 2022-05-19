@@ -62,7 +62,7 @@ export const BackgroundCircle = styled.View<{
   width: ${({scale}) => width * (scale || 1)}px;
   height: ${({scale}) => width * (scale || 1)}px;
   border-radius: ${({scale}) => (width * (scale || 1)) / 2}px;
-  background-color: ${({theme}) => theme.colors.secondary}45;
+  background-color: ${({theme}) => theme.colors.secondary}35;
 `;
 
 export const Image = styled.Image`

@@ -1,7 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {CommonActions} from '@react-navigation/native';
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {Dimensions} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
 
+import types from '../../store/module/types';
 import * as S from './styles';
 
 const {width} = Dimensions.get('window');
@@ -11,7 +14,26 @@ type Props = {
 };
 
 const Onboarding: FC<Props> = ({navigation}) => {
+  const dispatch = useDispatch();
+
+  const onboardingDone = useSelector((state: any) => state.app.onboardingDone);
+
+  useEffect(() => {
+    if (onboardingDone) {
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: 'Main'}],
+        }),
+      );
+    }
+  }, [onboardingDone]);
+
   const onPress = () => {
+    dispatch({
+      type: types.app.DONE_ONBOARDING,
+    });
+
     navigation.dispatch(
       CommonActions.reset({
         index: 0,

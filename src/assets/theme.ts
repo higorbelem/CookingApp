@@ -9,7 +9,7 @@ const defaultTheme = {
   colors: {
     main: '#76B7AF',
     secondary: '#72D9CC',
-    accent: '#F0C94A',
+    accent: '#FF8C42',
     dark_gray: '#9F9F9F',
     gray: '#E0E0E0',
     text: '#373737',

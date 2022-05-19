@@ -20,7 +20,10 @@ const Item: FC<Props> = ({image, title, description, first, onPress}) => {
       size={width * 0.4}
       activeOpacity={0.9}
       onPress={onPress}>
-      <S.Image source={{uri: image}} size={width * 0.4} />
+      <S.Image
+        source={{uri: `data:image/png;base64,${image}`}}
+        size={width * 0.4}
+      />
 
       <S.TitleContainer>
         <S.Title numberOfLines={1}>{title}</S.Title>

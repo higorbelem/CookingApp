@@ -21,6 +21,7 @@ interface IProps {
   errorColor?: string;
   hideFilter?: boolean;
   disabled?: boolean;
+  style?: any;
 }
 
 export const Select = ({
@@ -35,6 +36,7 @@ export const Select = ({
   errorColor,
   hideFilter,
   disabled,
+  style,
 }: IProps) => {
   const [showList, setShowList] = useState<boolean>(false);
   const [label, setLabel] = useState<string>();
@@ -126,6 +128,7 @@ export const Select = ({
   return (
     <>
       <S.Container
+        style={style}
         paddingLeft={paddingLeft}
         halfSize={halfSize}
         enabledList={showList}>
@@ -133,7 +136,8 @@ export const Select = ({
           enabledList={showList}
           onPress={() => setShowList(!showList)}
           activeOpacity={0.8}
-          error={error}>
+          error={error}
+          selectionMade={!!label}>
           {label ? (
             <S.LabelPlaceHolder>{label}</S.LabelPlaceHolder>
           ) : (

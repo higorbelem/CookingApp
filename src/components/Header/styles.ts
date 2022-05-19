@@ -3,6 +3,8 @@ import styled from 'styled-components/native';
 import History from '../../assets/svgs/history.svg';
 import ArrowLeft from '../../assets/svgs/arrow_left.svg';
 import Plus from '../../assets/svgs/plus.svg';
+import Favorite from '../../assets/svgs/favorite.svg';
+import FavoriteOutline from '../../assets/svgs/favorite_outline.svg';
 import Text from '../Text';
 
 export const Container = styled.View`
@@ -15,7 +17,7 @@ export const Container = styled.View`
 export const Title = styled(Text)`
   flex: 1;
   font-size: 18px;
-  font-family: ${({theme}) => theme.fonts.regular};
+  font-family: ${({theme}) => theme.fonts.medium};
   text-align: center;
 `;
 
@@ -31,6 +33,10 @@ export const HistoryIcon = styled(History)``;
 export const PlusIcon = styled(Plus)``;
 
 export const ArrowLeftIcon = styled(ArrowLeft)``;
+
+export const FavoriteIcon = styled(Favorite)``;
+
+export const FavoriteOutlineIcon = styled(FavoriteOutline)``;
 
 export const Empty = styled.View`
   height: 60px;

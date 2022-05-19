@@ -6,4 +6,5 @@ export type IRecipe = {
   image: string;
   ingredients: IIngredient[];
   method: string;
+  favorite: boolean;
 };

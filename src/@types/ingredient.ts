@@ -1,4 +1,6 @@
-export type IMetric = 'Kg' | 'g' | 'ml' | 'L' | 'un';
+import {metrics} from '../static/metrics';
+
+export type IMetric = typeof metrics[number];
 
 export type IIngredient = {
   id: string;

@@ -1,18 +1,41 @@
-import {Dimensions, Platform} from 'react-native';
+import {Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
 import styled from 'styled-components/native';
+import {getBottomSpace} from 'react-native-iphone-x-helper';
 
 import Text from '../../components/Text';
 import TrayArrow from '../../assets/svgs/tray_arrow.svg';
-import {getBottomSpace} from 'react-native-iphone-x-helper';
 
 const {width} = Dimensions.get('window');
+
+export const KeyboardView = styled(KeyboardAvoidingView)`
+  flex: 1;
+`;
 
 export const Safe = styled.SafeAreaView`
   flex: 1;
 `;
 
-export const Container = styled.View`
+export const Scroll = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    paddingBottom: 60,
+  },
+})`
   flex: 1;
+`;
+
+export const SearchInput = styled.TextInput`
+  width: 90%;
+  align-self: center;
+  background-color: ${({theme}) => theme.colors.background};
+  padding-horizontal: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  shadow-color: ${Platform.OS === 'ios' ? '#00000022' : '#00000066'};
+  shadow-offset: 2px 2px;
+  shadow-opacity: 0.8;
+  shadow-radius: 5px;
+  elevation: 5;
 `;
 
 export const BackgroundCircle = styled.View<{
@@ -50,7 +73,7 @@ export const PantryTray = styled.TouchableOpacity`
 
 export const PantryTrayText = styled(Text)`
   color: ${({theme}) => theme.colors.text_white};
-  font-weight: 700;
+  font-family: ${({theme}) => theme.fonts.medium};
 `;
 
 export const TrayArrowIcon = styled(TrayArrow).attrs({

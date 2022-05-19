@@ -13,13 +13,10 @@ export const Safe = styled.SafeAreaView`
   flex: 1;
 `;
 
-export const Scroll = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    alignItems: 'center',
-    padding: 20,
-  },
-})`
+export const Container = styled.View`
   flex: 1;
+  align-items: center;
+  padding: 20px;
 `;
 
 export const AddImageButton = styled.TouchableOpacity`
@@ -49,33 +46,6 @@ export const Button = styled(B)`
   align-self: center;
 `;
 
-export const IngredientsContainer = styled.View`
-  width: 100%;
-`;
-
-export const IngredientContainer = styled.View`
-  flex-direction: row;
-`;
-
-export const IngredientSelect = styled(Select)`
-  flex: 0.75;
-  margin-top: 7px;
-`;
-
-export const IngredientQuantInput = styled(Input)`
-  flex: 0.25;
-  margin-top: 7px;
-  margin-left: 5px;
-`;
-
-export const Separator = styled.View`
-  width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-color: ${({theme}) => theme.colors.gray};
-  align-self: center;
-  margin-vertical: 15px;
-`;
-
 export const AddButton = styled.TouchableOpacity`
   width: 50px;
   height: 50px;
@@ -88,3 +58,18 @@ export const AddIcon = styled(Plus).attrs({
   width: 30,
   height: 30,
 })``;
+
+export const QuantityContainer = styled.View`
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 15px;
+`;
+
+export const QuantityInput = styled(Input)`
+  flex: 0.7;
+`;
+
+export const QuantitySelect = styled(Select)`
+  flex: 0.3;
+  margin-left: 5px;
+`;
