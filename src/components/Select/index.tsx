@@ -22,6 +22,8 @@ interface IProps {
   hideFilter?: boolean;
   disabled?: boolean;
   style?: any;
+  notFoundButtonText?: string;
+  notFoundButtonOnPress?: () => void;
 }
 
 export const Select = ({
@@ -37,6 +39,8 @@ export const Select = ({
   hideFilter,
   disabled,
   style,
+  notFoundButtonText,
+  notFoundButtonOnPress,
 }: IProps) => {
   const [showList, setShowList] = useState<boolean>(false);
   const [label, setLabel] = useState<string>();
@@ -162,7 +166,15 @@ export const Select = ({
                 ))}
               </S.List>
             ) : (
-              <S.LabelSearch>Not found</S.LabelSearch>
+              <S.NotFoundContainer>
+                <S.NotFoundText>Not found</S.NotFoundText>
+                {!!notFoundButtonText && notFoundButtonOnPress && (
+                  <S.NotFoundButton
+                    text={notFoundButtonText}
+                    onPress={notFoundButtonOnPress}
+                  />
+                )}
+              </S.NotFoundContainer>
             )}
           </S.ListContainer>
         </S.Animated>

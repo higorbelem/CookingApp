@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {CommonActions} from '@react-navigation/native';
+import {MotiView, useAnimationState} from 'moti';
 import React, {FC, useEffect} from 'react';
 import {Dimensions} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
@@ -17,6 +18,23 @@ const Onboarding: FC<Props> = ({navigation}) => {
   const dispatch = useDispatch();
 
   const onboardingDone = useSelector((state: any) => state.app.onboardingDone);
+
+  const animationState = useAnimationState({
+    from: {
+      marginBottom: -200,
+      rotateZ: '90deg',
+    },
+    to: {
+      marginBottom: 0,
+      rotateZ: '0deg',
+    },
+  });
+
+  useEffect(() => {
+    setTimeout(() => {
+      animationState.transitionTo('to');
+    }, 500);
+  }, []);
 
   useEffect(() => {
     if (onboardingDone) {
@@ -57,9 +75,15 @@ const Onboarding: FC<Props> = ({navigation}) => {
           <S.Title>Welcome!</S.Title>
           <S.Subtitle>Let’s get cooking !</S.Subtitle>
 
-          <S.Button onPress={onPress}>
-            <S.ArrowRightIcon width={15} height={15} />
-          </S.Button>
+          <MotiView
+            state={animationState}
+            transition={{
+              type: 'spring',
+            }}>
+            <S.Button onPress={onPress}>
+              <S.ArrowRightIcon width={15} height={15} />
+            </S.Button>
+          </MotiView>
         </S.Container>
       </S.Safe>
     </>

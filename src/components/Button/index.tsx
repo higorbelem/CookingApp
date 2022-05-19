@@ -6,12 +6,13 @@ type Props = {
   text?: string;
   onPress?: () => void;
   style?: any;
+  textStyle?: any;
 };
 
-const Button: FC<Props> = ({text, onPress, style}) => {
+const Button: FC<Props> = ({text, onPress, style, textStyle}) => {
   return (
     <S.Button style={style} onPress={onPress}>
-      <S.Text>{text}</S.Text>
+      <S.Text style={textStyle}>{text}</S.Text>
     </S.Button>
   );
 };

@@ -181,6 +181,10 @@ const AddRecipe: FC<Props> = ({navigation}) => {
                     return tmp;
                   });
                 }}
+                notFoundButtonText="Add ingredient"
+                notFoundButtonOnPress={() =>
+                  navigation.navigate('AddIngredient')
+                }
               />
 
               <S.IngredientQuantInput

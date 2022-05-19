@@ -31,6 +31,7 @@ export const Title = styled(Text)`
 export const Subtitle = styled(Text)`
   font-size: 18px;
   margin-top: 20px;
+  margin-bottom: 40px;
   font-weight: 300;
 `;
 
@@ -41,7 +42,6 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   background-color: ${({theme}) => theme.colors.secondary};
-  margin-top: 40px;
 `;
 
 export const ArrowRightIcon = styled(ArrowRight)``;

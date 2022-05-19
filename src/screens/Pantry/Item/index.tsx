@@ -53,7 +53,9 @@ const Item: FC<Props> = ({image, title, metric, quant, onPress, onChange}) => {
               ref={inputRef}
               value={`${number}`}
               keyboardType="numeric"
-              onChangeText={text => setNumber(text.replace(/[^0-9.]/g, ''))}
+              onChangeText={text =>
+                setNumber(text.replace(/[^0-9.]/g, '') || '0')
+              }
             />
 
             <S.MetricText>{metric}</S.MetricText>

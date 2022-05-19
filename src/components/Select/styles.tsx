@@ -6,6 +6,7 @@ import SearchIco from '../../assets/svgs/search.svg';
 import ChevronDownIco from '../../assets/svgs/chevron_down.svg';
 import defaultTheme from '../../assets/theme';
 import Text from '../Text';
+import Button from '../Button';
 
 const {width, height} = Dimensions.get('screen');
 
@@ -54,10 +55,22 @@ export const LabelPlaceHolder = styled(Text)<SProps>`
   font-size: 16px;
 `;
 
-export const LabelSearch = styled(Text)<SProps>`
+export const NotFoundContainer = styled.View`
   margin-left: 10px;
-  color: ${({theme}) => theme.colors.text};
+  color: ${({theme}) => theme.colors.dark_gray};
   font-size: 14px;
+`;
+
+export const NotFoundText = styled(Text)<SProps>`
+  margin-left: 10px;
+  color: ${({theme}) => theme.colors.dark_gray};
+  font-size: 14px;
+`;
+
+export const NotFoundButton = styled(Button)`
+  width: 150px;
+  height: 30px;
+  align-self: center;
 `;
 
 export const Icon = styled(ChevronDownIco).attrs({

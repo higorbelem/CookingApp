@@ -12,7 +12,7 @@ export const Container = styled.TouchableOpacity`
 export const Content = styled.View`
   background-color: ${({theme}) => theme.colors.background};
   border-radius: 10px;
-  margin: 5px;
+  margin: 10px;
 
   shadow-color: ${Platform.OS === 'ios' ? '#00000022' : '#00000099'};
   shadow-offset: 2px 2px;
@@ -67,6 +67,7 @@ export const MetricText = styled(Text)`
   flex: 1;
   font-size: 16px;
   text-align: left;
+  margin-left: 3px;
 `;
 
 export const QuantButton = styled.TouchableOpacity`
